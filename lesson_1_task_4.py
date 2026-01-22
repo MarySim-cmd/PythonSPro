@@ -1,3 +1,4 @@
 def print_greeting():
-    print("Здравствуйте.")
+    print("Привет,мир!")
 print_greeting()
+
