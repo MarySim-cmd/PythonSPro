@@ -1,10 +1,4 @@
-class Smartphone:
-    def __init__(self, brand, model, phone_number):
-        self.brand = brand
-        self.model = model
-        self.phone_number = phone_number
-
-
+from smartphone import Smartphone
 
 catalog = [
     Smartphone("OnePlus", "Snapdragon® 8 Gen 5", "+79120110100"),
@@ -13,7 +7,6 @@ catalog = [
     Smartphone("Xiaomi", "13T Pro", "+79120110103"),
     Smartphone("Google", "Pixel 8", "+79120110104")
 ]
-
 
 for smartphone in catalog:
     print(f"{smartphone.brand} - {smartphone.model}. {smartphone.phone_number}")

@@ -5,4 +5,3 @@ class Address:
         self.street = street
         self.house = house
         self.apartment = apartment
-addr = Address("123456", "Тюмень", "Республики", "180", "115")
