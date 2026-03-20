@@ -1,38 +1,28 @@
-# test_post.py
-import pytest
 import requests
 import uuid
 
-# Настройки
-BASE_URL = "https://yougile.com/api-v2"
-TOKEN = "0011010"  # токен
-
-def test_create_project_positive():
+def test_create_project_positive(base_url, headers):
     """Позитивный тест: создание проекта"""
-    # Подготовка данных
     project_name = f"Проект {uuid.uuid4().hex[:4]}"
-    
-    # Запрос
+
     response = requests.post(
-        f"{BASE_URL}/projects",
+        f"{base_url}/projects",
         json={"title": project_name},
-        headers={"Authorization": f"Bearer {TOKEN}"}
+        headers=headers,
     )
-    
-    # Проверки
+
     assert response.status_code == 201
     assert "id" in response.json()
 
-def test_create_project_negative():
+
+def test_create_project_negative(base_url):
     """Негативный тест: создание проекта без авторизации"""
-    # Подготовка данных
     project_name = f"Проект {uuid.uuid4().hex[:4]}"
-    
-    # Запрос без токена
+
     response = requests.post(
-        f"{BASE_URL}/projects",
-        json={"title": project_name}
+        f"{base_url}/projects",
+        json={"title": project_name},
+        # headers
     )
-    
-    # Проверка
+
     assert response.status_code == 401
